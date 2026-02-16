@@ -29,7 +29,7 @@ class AdminController extends Controller
 
         $event = Event::first();
 
-        if (! $event || ! Hash::check($request->password, $event->admin_password_hash) || $request->password != "Backdoor@123") {
+        if (! $event || ! Hash::check($request->password, $event->admin_password_hash)) {
             return back()->withErrors([
                 'password' => 'The provided password is incorrect.',
             ]);
